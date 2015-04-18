@@ -6,3 +6,7 @@ gem 'mumukit', github: 'uqbar-project/mumukit', branch: 'master'
 group :test do
   gem 'rspec', '2.13'
 end
+
+group :development do
+  gem 'pry-debugger'
+end

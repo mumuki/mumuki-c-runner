@@ -3,5 +3,5 @@
 # Run the server
 
 ```
-RACK_ENV=development rackup -p 4567
+RACK_ENV=development bundle exec rackup -p 4567
 ```
