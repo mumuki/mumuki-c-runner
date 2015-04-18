@@ -1,7 +1,7 @@
 GIT
-  remote: git://github.com/uqbar-project/mumukit.git
-  revision: ad2d154469e782591ac362dcff3445a7d32c4b52
-  branch: master
+  remote: git://github.com/mgarciaisaia/mumukit.git
+  revision: 5f4e4658b8a86a5301ad7801037bc1312e2b2ae8
+  branch: configurable-filename
   specs:
     mumukit (0.0.1)
       sinatra (~> 1.4)

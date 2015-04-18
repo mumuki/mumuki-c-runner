@@ -1,21 +1,25 @@
 require 'mumukit'
+require 'tempfile'
 
 class TestRunner
 
-  def run_test_file!(file)
-    validate_compile_errors(file, *super)
+  def gcc_command
+    @config['gcc_command'] || 'gcc'
   end
 
-  def validate_compile_errors(file, result, status)
-    if /ERROR: #{file.path}:.*: Syntax error: .*/ =~ result
-      [result, :failed]
-    else
-      [result, status]
-    end
+  def run_test_file!(test_file)
+    output_file = Tempfile.new('mumuki.cspec.test')
+    compilation_output, compilation_status = [
+      %x{#{compile_test_file_command(test_file.path, output_file.path)}},
+      $?.success? ? :passed : :failed
+    ]
+    return [compilation_output, :failed] if compilation_status == :failed
+    output_file.close
+    [ %x{#{output_file.path}}, $?.success? ? :passed : :failed ]
   end
 
-  def run_test_command(file)
-    "#{swipl_path} -f #{file.path} --quiet -t run_tests 2>&1"
+  def compile_test_file_command(test_file, output_file)
+    "#{gcc_command} #{test_file} -o #{output_file} -lcspecs"
   end
 
 end
