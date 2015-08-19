@@ -1,7 +1,6 @@
-require 'mumukit'
 require 'tempfile'
 
-class TestRunner
+class TestRunner  < Mumukit::FileTestRunner
 
   def gcc_command
     @config['gcc_command'] || 'gcc'
