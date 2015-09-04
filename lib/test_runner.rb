@@ -2,10 +2,6 @@ require 'tempfile'
 
 class TestRunner  < Mumukit::FileTestRunner
 
-  def gcc_command
-    @config['gcc_command'] || 'gcc'
-  end
-
   def run_test_file!(test_file)
     output_file = Tempfile.new('mumuki.cspec.test')
     compilation_output, compilation_status = [
