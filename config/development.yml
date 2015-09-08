@@ -1,2 +1,2 @@
-# FIXME!!
 cspec_command: cspec
+gcc_command: gcc
