@@ -15,7 +15,7 @@ describe 'Server' do
     it ("is true") { should_bool(_true) be truthy; } end
 }, extra: 'char _true = 0;', content: %q{_true = 1;}, expectations: [])
 
-    expect(response[:result]).to include('OK')
+    expect(response[:result]).to include('1 success')
     expect(response[:status]).to eq(:passed)
   end
 
@@ -26,7 +26,8 @@ describe 'Server' do
 }, extra: 'char _true = 0;', content: %q{_true = 0;}, expectations: [])
 
     expect(response[:status]).to eq(:failed)
-    expect(response[:result]).to include('There was 1 failure')
+    expect(response[:result]).to include('1 failure')
+    expect(response[:result]).to include('0 success')
   end
 
 
