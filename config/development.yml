@@ -1,2 +1,1 @@
-cspec_command: cspec
-gcc_command: gcc
+runcspec_command: bin/runcspec.sh
