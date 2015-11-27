@@ -1,1 +1,1 @@
-runcspec_command: bin/runcspec.sh
+runcspec_command: runcspec

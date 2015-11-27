@@ -1,7 +1,7 @@
 require 'tempfile'
 
 class TestRunner < Mumukit::FileTestRunner
-  include Mumukit::WithEmbeddedEnvironment
+  include Mumukit::WithIsolatedEnvironment
 
   def post_process_file(file, result, status)
     if result.include? '!!TEST FINISHED WITH COMPILATION ERROR!!'
