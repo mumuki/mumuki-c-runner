@@ -1,6 +1,3 @@
-require 'mumukit'
-
-require_relative 'lib/test_compiler'
-require_relative 'lib/test_runner'
+require_relative 'lib/cspec_server'
 
 run Mumukit::TestServerApp

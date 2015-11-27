@@ -1,11 +1,6 @@
-require 'mumukit'
 require 'tempfile'
 
-class TestRunner
-
-  def gcc_command
-    @config['gcc_command'] || 'gcc'
-  end
+class TestRunner  < Mumukit::FileTestRunner
 
   def run_test_file!(test_file)
     output_file = Tempfile.new('mumuki.cspec.test')

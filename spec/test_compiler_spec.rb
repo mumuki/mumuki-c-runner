@@ -1,4 +1,4 @@
-require_relative '../lib/test_compiler'
+require_relative './spec_helper'
 
 describe TestCompiler do
   true_test = <<EOT
@@ -35,9 +35,8 @@ EOT
 
   describe '#compile' do
     let(:compiler) { TestCompiler.new(nil) }
-    it {
-      expect(compiler.compile(true_test, 'char _true = 0;', true_submission)).to eq(compiled_test_submission)
-    }
+    let(:request) { OpenStruct.new(test: true_test, extra: 'char _true = 0;', content: true_submission) }
+    it { expect(compiler.compile(request)).to eq(compiled_test_submission) }
   end
 
 end

@@ -1,12 +1,10 @@
-require 'mumukit'
-
-class TestCompiler
+class TestCompiler < Mumukit::FileTestCompiler
 
   def create_tempfile
     Tempfile.new(['mumuki.compile', '.c'])
   end
 
-  def compile(test_src, extra_src, content_src)
+  def compile(request)
     <<EOF
 #include <cspecs/cspec.h>
 
@@ -14,11 +12,11 @@ context (mumuki_test) {
 
     describe ("Mumuki test") {
 
-        #{extra_src}
+        #{request.extra}
 
-        #{content_src}
+        #{request.content}
 
-        #{test_src}
+        #{request.test}
 
     } end
 
