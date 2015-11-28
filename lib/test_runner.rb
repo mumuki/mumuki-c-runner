@@ -1,5 +1,3 @@
-require 'tempfile'
-
 class TestRunner < Mumukit::FileTestRunner
   include Mumukit::WithIsolatedEnvironment
 
@@ -7,7 +5,7 @@ class TestRunner < Mumukit::FileTestRunner
     if result.include? '!!TEST FINISHED WITH COMPILATION ERROR!!'
       [result, :errored]
     else
-      [result, status]
+      [result.force_encoding('UTF-8'), status]
     end
   end
 
