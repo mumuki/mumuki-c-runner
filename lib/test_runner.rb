@@ -1,20 +1,16 @@
-require 'tempfile'
+class TestRunner < Mumukit::FileTestRunner
+  include Mumukit::WithIsolatedEnvironment
 
-class TestRunner  < Mumukit::FileTestRunner
-
-  def run_test_file!(test_file)
-    output_file = Tempfile.new('mumuki.cspec.test')
-    compilation_output, compilation_status = [
-      %x{#{compile_test_file_command(test_file.path, output_file.path)}},
-      $?.success? ? :passed : :failed
-    ]
-    return [compilation_output, :failed] if compilation_status == :failed
-    output_file.close
-    [ %x{#{output_file.path}}, $?.success? ? :passed : :failed ]
+  def post_process_file(file, result, status)
+    if result.include? '!!TEST FINISHED WITH COMPILATION ERROR!!'
+      [result, :errored]
+    else
+      [result.force_encoding('UTF-8'), status]
+    end
   end
 
-  def compile_test_file_command(test_file, output_file)
-    "#{gcc_command} #{test_file} -o #{output_file} -lcspecs"
+  def run_test_command(filename)
+    "#{runcspec_command} #{filename}"
   end
 
 end
