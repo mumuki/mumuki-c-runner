@@ -1,0 +1,5 @@
+{
+  "content": "char _true = 1;",
+  "test": "it (\"is true\") {\n  should_bool(_true) be truthy;\n} end"
+}
+
