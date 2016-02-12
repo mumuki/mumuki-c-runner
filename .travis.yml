@@ -7,7 +7,7 @@ services:
 - docker
 before_install:
 - openssl aes-256-cbc -K $encrypted_2cb88151beb0_key -iv $encrypted_2cb88151beb0_iv
-  -in deploy_rsa.enc -out deploy_rsa -d
+  -in escualo_rsa.enc -out escualo_rsa -d
 - docker pull mumuki/mumuki-cspec-worker
 after_success:
-- wget https://raw.githubusercontent.com/mumuki/mumuki-escualo/master/travis_deploy  && chmod u+x travis_deploy && ./travis_deploy cspec 162.243.111.176
+- wget https://raw.githubusercontent.com/mumuki/mumuki-escualo/master/travis_deploy  && chmod u+x travis_deploy && ./travis_deploy cspec runners.mumuki.io
