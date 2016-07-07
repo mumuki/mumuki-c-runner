@@ -1,7 +1,7 @@
 require_relative 'spec_helper'
 
 describe 'running' do
-  let(:runner) { TestHook.new(runcspec_command: 'runcspec') }
+  let(:runner) { CTestHook.new(runcspec_command: 'runcspec') }
 
   describe '#run' do
     context 'on errored submission' do

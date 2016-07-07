@@ -1,4 +1,4 @@
-class TestHook < Mumukit::Templates::FileHook
+class CTestHook < Mumukit::Templates::FileHook
   isolated true
 
   def tempfile_extension
@@ -6,7 +6,7 @@ class TestHook < Mumukit::Templates::FileHook
   end
 
   def command_line(filename)
-    "#{runcspec_command} #{filename}"
+    "runcspec #{filename}"
   end
 
   def post_process_file(file, result, status)
