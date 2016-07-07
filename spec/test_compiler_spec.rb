@@ -34,7 +34,7 @@ context (mumuki_test) {
 EOT
 
   describe '#compile' do
-    let(:compiler) { TestHook.new(nil) }
+    let(:compiler) { CTestHook.new(nil) }
     let(:request) { OpenStruct.new(test: true_test, extra: 'char _true = 0;', content: true_submission) }
     it { expect(compiler.compile_file_content(request)).to eq(compiled_test_submission) }
   end

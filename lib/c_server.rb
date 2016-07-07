@@ -1,8 +1,8 @@
 require 'mumukit'
 
+Mumukit.runner_name = 'c'
 Mumukit.configure do |config|
   config.docker_image = 'mumuki/mumuki-cspec-worker'
-  config.runner_name = 'cspec-server'
 
 end
 
