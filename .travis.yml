@@ -3,16 +3,9 @@ language: ruby
 env:
   matrix:
   - RACK_ENV=development
-  global:
-    secure: ySlZ1n8VtLKBQ9kZV3R82bpNq7Xi+jWRg3/ZK24+JMnq6NhbWMWqxxQ4EOkwbGYqQvpJAehAevYClHtQD18zNIcIb0pMYHZ4qQbj42Pk0qxwhyEFGVUtU1MqXHq2JdqTkQzb8b+nb0G31CMwQeF7cqFfQE78VgMrVuW5jTIunLT3azcqdYSHraJFyqj98pll9j5u3KPizJToNusAZdNPgLhocF9zzXp3E8PkaC3ZPRGkU2SCZJR/IYpn/6ASQKsITjpCwYfs9URrVAOi+XEvjXlMJizadjcBbsYLXj6dZKdJvRew173BrSYrXNNckJa9VMnB5h9eigQK7RmijrdivoVFJqsz//YDC/amGhXNGx/6P3amAcA6I1vlnczFr7aRuS8E+y/EJyd1EvzaipPlbyeQgA0E9PewJAsOmpiaxiKro5tPXAwT8ZuKWlSh0UNesQpnx+zJmDC7GeXVYAVCNHPN3E0mEs3xM5+ZS0j6hUFGUot4fCdbM4D9so7CspcOcjg5g8afNP8wzXflwjU6bSWke4NfxQPcZiBxQQ5tL7pqBasclDDq/dJEChjK7YZ2t7YNyq2YEhm0TlL3eKAmyUqbuGRQ6oDiTpRT31cMD2aeHqobnrpWt7k9JJxSU3UosSTN0APgSyGfbuL0C4ajt/cvsGFHZX/FAltLndwrio4=
 rvm:
 - 2.0.0
 services:
 - docker
 before_install:
-- openssl aes-256-cbc -K $encrypted_2cb88151beb0_key -iv $encrypted_2cb88151beb0_iv
-  -in escualo_rsa.enc -out escualo_rsa -d
 - docker pull mumuki/mumuki-cspec-worker
-after_success:
-- wget https://raw.githubusercontent.com/mumuki/mumuki-escualo-deploy/master/travis_deploy && chmod u+x travis_deploy
-- ./travis_deploy cspec
