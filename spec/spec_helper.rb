@@ -1,4 +1,4 @@
-require_relative '../lib/c_server'
+require_relative '../lib/c_runner'
 
 class File
   def unlink
