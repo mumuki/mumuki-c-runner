@@ -9,3 +9,11 @@ services:
 - docker
 before_install:
 - docker pull mumuki/mumuki-cspec-worker
+deploy:
+  provider: rubygems
+  api_key:
+    secure: Ru5Pbbmc3Le90lEbojX0Y1ZPLo7Oaa0g5kGiubNwHINR1FOVVgD/gAdbhp0Pc1LEUKlaRER6y+ujtMWQ+R9ppl90om1WKvJDAyncUuT7Uh4UmrmlZAXNKB8f+AiK42kiUPIhsce5FrJ/IS5oY+r9Qzw7I73M6sD/7wlx4ZvU1VKole8Py8sPpbcTOqdM99Wcq86FvRiC9klMWZuXxaSfFPzVqM6HKSgpXn/txUcKhx3lX18kZkZQGWRpxGn5XUeM2xP1DgVw7Ju/515JwtHG47lv+ByqyEWaPgVPt6Gxz44xJmkUqpsTivLTDeTh1z2Ptn/jgmJHyULsbHQ3XSXRFKgXvA6F4WQXXsnk1J5By0h1ApNfaWYUhV4s7vcNsr3b2oDEOpXcm037mG8FPt/j/W21NxZqN4rytfIyvFJTj4H4wn/+goqIP5su78SGsEbKcNWjGOTXR8/UmSQk5F8MovlxEkv9PBKoFagPtSU0dvctd49beIWZi7a/8sIOa87kxYOxr5u3Lc/HlD8PIrPi/1ihFMwYMqA+GEY0pytPJEAeGWiAQMp4JN5w7EhXUHQ0fwWoiAVHKu38mkivnOnUJHMt8wpnsPxC8kbVJIYU7W6rxoqhPU5z4Vky09gdXg4rM5zh4hArKl1kEG4rJgjr3kpawdpaI+/KZ1dMld4aAk8=
+  gem: mumuki-c-runner
+  on:
+    tags: true
+    repo: mumuki/mumuki-c-runner
