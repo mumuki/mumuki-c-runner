@@ -4,7 +4,7 @@ class CMetadataHook < Mumukit::Hook
         name: 'c',
         icon: {type: 'devicon', name: 'c'},
         extension: 'c',
-        ace_mode: 'c'
+        ace_mode: 'c_cpp'
     },
      test_framework: {
          name: 'cspec',
