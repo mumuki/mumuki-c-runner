@@ -14,6 +14,10 @@ EOT
   compiled_test_submission = <<EOT
 #include <cspecs/cspec.h>
 
+int main(void) {
+  return report(JSON);
+}
+
 context (mumuki_test) {
 
     describe ("Mumuki test") {
