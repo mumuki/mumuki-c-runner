@@ -1,5 +1,6 @@
 class CTestHook < Mumukit::Templates::FileHook
   isolated true
+  structured true
 
   def tempfile_extension
     '.c'
@@ -21,6 +22,10 @@ class CTestHook < Mumukit::Templates::FileHook
     <<EOF
 #include <cspecs/cspec.h>
 
+int main(void) {
+  return report(JSON);
+}
+
 context (mumuki_test) {
 
     describe ("Mumuki test") {
@@ -35,5 +40,15 @@ context (mumuki_test) {
 
 }
 EOF
+  end
+
+
+  def to_structured_result(result)
+    result = result.split("===========\nJSON REPORT\n===========").last
+    transform(super(result)['examples'])
+  end
+
+  def transform(examples)
+    examples.map { |e| [e['title'], e['status'].to_sym, e['result']] }
   end
 end
