@@ -6,5 +6,6 @@ Mumukit.configure do |config|
 
 end
 
+require_relative './version'
 require_relative './test_hook'
 require_relative './metadata_hook'
